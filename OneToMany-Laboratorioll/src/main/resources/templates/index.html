@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Estudiante CRUD</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
+</head>
+<body>
+	<div class="container my-2">
+		<center>
+			<h1>Lista de Estudiantes</h1>
+			<a th:href="@{/nuevoEstudiante}" class="btn btn-primary btn-sm mb-3">
+				Agregar Estudiante</a>
+		</center>
+		<table border="1" class="table table-striped table-responsive-md">
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Apellido</th>
+					<th>Direccion</th>
+					<th>Nit</th>
+					<th>Opciones</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="estudiante : ${listaEstudiantes}">
+					<td th:text="${estudiante.nombre}"></td>
+					<td th:text="${estudiante.apellido}"></td>
+					<td th:text="${estudiante.direccion}"></td>
+					<td th:text="${estudiante.nit}"></td>
+					<td><a th:href="@{/actualizarEstudiante/{id} (id=${estudiante.id})}" class="btn btn-warning">Actualizar</a>
+					<a th:href="@{/eliminarEstudiante/{id} (id=${estudiante.id})}" class="btn btn-danger">Eliminar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

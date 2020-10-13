@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Estudiantes</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
+</head>
+<body>
+
+<center>
+	<div class="container">
+		<h1>CRUD</h1>
+		<hr>
+		<h2>Guardar Estudiante</h2>
+		<form action="#" th:action="@{/guardarEstudiante}"
+			th:object="${estudiante}" method="POST">
+
+			<input type="text" th:field="*{nombre}"
+				placeholder="Ingresa tu nombre"  class="form-control mb-4 col-4" required="required">
+
+			<input type="text" th:field="*{apellido}"
+				placeholder="Ingresa tu apellido" class="form-control mb-4 col-4" required="required">
+
+			<input type="text" th:field="*{direccion}"
+				placeholder="Ingresa tu direccion" class="form-control mb-4 col-4" required="required">
+
+			<input type="text" th:field="*{nit}" placeholder="Ingresa tu nit"
+				class="form-control mb-4 col-4" required="required">
+
+			<button type="submit" class="btn btn btn-success col-2">
+				Guardar Estudiante</button>
+
+		</form>
+
+	</div>
+	</center>
+
+</body>
+</html>
